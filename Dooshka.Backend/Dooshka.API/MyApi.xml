@@ -1,0 +1,184 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Dooshka.API</name>
+    </assembly>
+    <members>
+        <member name="T:Dooshka.API.Controllers.AuthController">
+            <summary>
+            Controller to work with auth service
+            </summary>
+        </member>
+        <member name="M:Dooshka.API.Controllers.AuthController.Register(MediatR.ISender,Dooshka.Application.Features.AuthFeatures.Requests.RegisterRequest)">
+            <summary>
+            Method to register
+            </summary>
+            <param name="sender"></param>
+            <param name="request">
+                Request data
+            </param>
+            <returns></returns>
+        </member>
+        <member name="M:Dooshka.API.Controllers.AuthController.Login(MediatR.ISender,Dooshka.Application.Features.AuthFeatures.Requests.LoginRequest)">
+            <summary>
+            Method to login
+            </summary>
+            <param name="sender"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dooshka.API.Controllers.AuthController.Refresh(MediatR.ISender,Dooshka.Application.Features.AuthFeatures.Requests.RefreshAccessTokenRequest)">
+            <summary>
+            Method to refresh your expired access token
+            </summary>
+            <param name="sender"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dooshka.API.Controllers.AuthController.Logout(MediatR.ISender,Dooshka.Application.Features.AuthFeatures.Requests.LogoutRequest)">
+            <summary>
+            Method to log out. 
+            Make current access and refresh tokens unavailable
+            </summary>
+            <param name="sender"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dooshka.API.Controllers.AuthController.ConfirmEmail(MediatR.ISender,System.String,System.Int32)">
+            <summary>
+            Method for user.
+            Called from a mail message
+            </summary>
+            <param name="sender"></param>
+            <param name="email"></param>
+            <param name="confirmationCode"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Dooshka.API.Controllers.ToDoItemController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Dooshka.API.Controllers.ToDoItemController.Create(MediatR.ISender,Dooshka.Application.Features.ToDoItems.Requests.CreateToDoItemRequest)">
+            <summary>
+            Method for create MainToDoItem
+            </summary>
+            <param name="sender"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dooshka.API.Controllers.ToDoItemController.CreateSubItem(MediatR.ISender,Dooshka.Application.Features.ToDoItems.Requests.CreateSubToDoItemRequest)">
+            <summary>
+            Method for create SubToDoItem
+            </summary>
+            <param name="sender"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dooshka.API.Controllers.ToDoItemController.Get(MediatR.ISender)">
+            <summary>
+            Get all current user ToDoItems. 
+            </summary>
+            <param name="sender"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dooshka.API.Controllers.ToDoItemController.DeleteItemById(MediatR.ISender,System.Guid)">
+            <summary>
+            Method for delete MainToDoItem by Id
+            </summary>
+            <param name="sender"></param>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dooshka.API.Controllers.ToDoItemController.DeleteSubItemById(MediatR.ISender,System.Guid)">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dooshka.API.Controllers.ToDoItemController.GetToDoItemById(MediatR.ISender,System.Guid)">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dooshka.API.Controllers.ToDoItemController.GetSubToDoItemById(MediatR.ISender,System.Guid)">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dooshka.API.Controllers.ToDoItemController.GetToDoItemsByCompletionDate(MediatR.ISender,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="dateAsString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dooshka.API.Controllers.ToDoItemController.GetToDoItemsByDateRange(MediatR.ISender,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="startDateAsString"></param>
+            <param name="endDateAsString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dooshka.API.Controllers.ToDoItemController.ChangeToDoItemStatus(MediatR.ISender,System.Guid,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="id"></param>
+            <param name="status"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dooshka.API.Controllers.ToDoItemController.UpdateToDoItem(MediatR.ISender,Dooshka.Application.Features.ToDoItems.Requests.UpdateToDoItemRequest)">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dooshka.API.Controllers.UserAccountController.ChangeName(MediatR.ISender,Dooshka.Application.Features.UserFeatures.Requests.ChangeNameRequest)">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="command"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dooshka.API.Controllers.UserAccountController.ChangePassword(MediatR.ISender,Dooshka.Application.Features.UserFeatures.Requests.ChangePasswordRequest)">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="command"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dooshka.API.Controllers.UserAccountController.GetCompletedTaskStatistic(MediatR.ISender)">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dooshka.API.Controllers.UserAccountController.GetIncompletedTaskStatistic(MediatR.ISender)">
+            <summary>
+            
+            </summary>
+            <param name="sender"></param>
+            <returns>
+            100
+            </returns>
+        </member>
+    </members>
+</doc>
