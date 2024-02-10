@@ -1,0 +1,6 @@
+@Dooshka.API_HostAddress = http://localhost:5276
+
+GET {{Dooshka.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
