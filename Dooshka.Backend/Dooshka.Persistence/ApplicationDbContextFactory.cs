@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
+using System.Reflection;
 
 namespace Dooshka.Persistence
 {
@@ -16,7 +17,9 @@ namespace Dooshka.Persistence
             var builder = new DbContextOptionsBuilder<ApplicationDbContext>();
             var connectionString = configuration.GetConnectionString("DatabaseConnection");
 
-            builder.UseNpgsql(connectionString);
+            Console.WriteLine(Assembly.GetExecutingAssembly().GetName().Name);
+
+            builder.UseNpgsql(connectionString, b => b.MigrationsAssembly(Assembly.GetExecutingAssembly().GetName().Name));
 
             return new ApplicationDbContext(builder.Options);
         }

@@ -21,4 +21,8 @@
     <ProjectReference Include="..\Dooshka.Application\Dooshka.Application.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
 </Project>

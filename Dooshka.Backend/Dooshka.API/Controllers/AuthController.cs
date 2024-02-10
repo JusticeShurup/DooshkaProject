@@ -10,7 +10,7 @@ namespace Dooshka.API.Controllers
 {
 
     /// <summary>
-    /// Controller to work with auth service
+    /// Controller to work with auth service!
     /// </summary>
     [EnableCors("AllowAll")]
     [ApiController]
@@ -18,7 +18,7 @@ namespace Dooshka.API.Controllers
     public class AuthController : Controller
     {
         /// <summary>
-        /// Method to register
+        /// Method to register!
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="request">

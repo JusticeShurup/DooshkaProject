@@ -4,7 +4,6 @@ using Dooshka.Application;
 using Dooshka.Infrastructure;
 using Dooshka.Persistence;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
@@ -117,8 +116,6 @@ namespace Dooshka.API
 
             app.MapControllers();
 
-            ApplyMigration(app);
-
             app.Run();
         }
 
@@ -126,11 +123,11 @@ namespace Dooshka.API
         {
             using (var scope = app.Services.CreateScope())
             {
-                var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+                var _db = scope.ServiceProvider.GetRequiredService<TaskManagerDbContext>();
 
-                if (dbContext.Database.GetPendingMigrations().Count() > 0)
+                if (_db.Database.GetPendingMigrations().Count() > 0)
                 {
-                    dbContext.Database.Migrate();
+                    _db.Database.Migrate();
                 }
             }
         }

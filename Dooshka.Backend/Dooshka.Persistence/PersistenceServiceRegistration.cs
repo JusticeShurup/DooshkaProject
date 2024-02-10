@@ -4,6 +4,7 @@ using Dooshka.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System.Reflection;
 
 namespace Dooshka.Persistence
 {
@@ -13,7 +14,7 @@ namespace Dooshka.Persistence
         {
             services.AddDbContext<ApplicationDbContext>(options =>
                options.UseNpgsql(
-                   configuration.GetConnectionString("DatabaseConnection")));
+                   configuration.GetConnectionString("DatabaseConnection"), b => b.MigrationsAssembly(Assembly.GetExecutingAssembly().GetName().Name)));
 
 
             services.AddScoped<IRepository<EmailConfirmationCode>, EmailConfirmationCodeRepository>();

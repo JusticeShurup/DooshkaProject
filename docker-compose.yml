@@ -1,0 +1,47 @@
+version: '3.9'
+
+networks:
+  dooshka-network:
+    driver: bridge
+
+services:
+  dooshka-api: 
+    container_name: dooshka-webapi
+    build:
+      context: ./Dooshka.Backend
+      dockerfile: ./Dooshka.API/Dockerfile
+    ports:
+        - "20000:20000"
+    networks:
+      - dooshka-network
+    depends_on:
+      - dooshka-db
+    environment:
+      - ASPNETCORE_URLS=http://+:20000
+      - ConnectionStrings:DatabaseConnection=Server=dooshka-db;Database=dooshka-db;Port=5432;Username=postgres;Password=super;
+  dooshka-db:
+    container_name: postgres
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: super
+      POSTGRES_DB: dooshka-db
+    ports:
+      - "5433:5432"
+    networks:
+      - dooshka-network
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+  pgadmin: 
+    container_name: pgadmin
+    image: dpage/pgadmin4
+    environment: 
+      PGADMIN_DEFAULT_EMAIL: noemail@noemail.com
+      PGADMIN_DEFAULT_PASSWORD: root
+    ports:
+      - "5050:80"
+    networks:
+      - dooshka-network
+
+volumes:
+  postgres-data:
