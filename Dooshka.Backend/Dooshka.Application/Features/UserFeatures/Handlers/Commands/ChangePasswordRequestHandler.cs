@@ -26,11 +26,6 @@ namespace Dooshka.Application.Features.UserFeatures.Handlers.Commands
         {
             User user = (User)_httpContextAccessor.HttpContext.Items["User"];
 
-            if (_passwordHasher.VerifyHashedPassword(user, user.Password, request.Password) == PasswordVerificationResult.Failed)
-            {
-                throw new BadRequestException("Password incorrect");
-            }
-
             user.Password = _passwordHasher.HashPassword(user, request.NewPassword);
 
             await _userRepository.UpdateAsync(user);

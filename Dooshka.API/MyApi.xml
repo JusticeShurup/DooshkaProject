@@ -11,7 +11,7 @@
         </member>
         <member name="M:Dooshka.API.Controllers.AuthController.Register(MediatR.ISender,Dooshka.Application.Features.AuthFeatures.Requests.RegisterRequest)">
             <summary>
-            Method to register
+            Method to register!
             </summary>
             <param name="sender"></param>
             <param name="request">
@@ -131,7 +131,7 @@
             <param name="endDateAsString"></param>
             <returns></returns>
         </member>
-        <member name="M:Dooshka.API.Controllers.ToDoItemController.ChangeToDoItemStatus(MediatR.ISender,System.Guid,System.Int32)">
+        <member name="M:Dooshka.API.Controllers.ToDoItemController.ChangeToDoItemStatus(MediatR.ISender,Dooshka.Application.Features.ToDoItems.Requests.ChangeToDoItemStatusRequest)">
             <summary>
             
             </summary>

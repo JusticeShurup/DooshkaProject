@@ -45,6 +45,7 @@ namespace Dooshka.Application.Features.ToDoItems.Handlers.Commands
                 foreach (ToDoItem subItem in subItems)
                 {
                     subItem.CompletionDate = DateOnly.Parse(request.CompletionDate);
+                    await _toDoItemRepository.UpdateAsync(subItem);
                 }
             }
 
@@ -52,6 +53,7 @@ namespace Dooshka.Application.Features.ToDoItems.Handlers.Commands
             currentItem.Description = request.Description;
             currentItem.CompletionDate = DateOnly.Parse(request.CompletionDate);
 
+            await _toDoItemRepository.UpdateAsync(currentItem);
 
             return new UpdatedToDoItemDTO()
             {

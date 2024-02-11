@@ -24,7 +24,7 @@ namespace Dooshka.Application.Features.ToDoItems.Handlers.Commands
 
             ToDoItem? toDoItem;
 
-            toDoItem = _toDoItemRepository.Find(x => x.Id == request.ToDoItemId);
+            toDoItem = _toDoItemRepository.Find(x => x.Id == request.Id);
 
             if (toDoItem == null)
             {

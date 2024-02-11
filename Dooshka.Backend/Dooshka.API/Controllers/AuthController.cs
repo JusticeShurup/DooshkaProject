@@ -26,6 +26,7 @@ namespace Dooshka.API.Controllers
         /// </param>
         /// <returns></returns>
 
+        [AllowAnonymous]
         [Route("[action]")]
         [HttpPost]
         [ProducesResponseType(typeof(UserDTO), 201)]
@@ -43,6 +44,7 @@ namespace Dooshka.API.Controllers
         /// <param name="sender"></param>
         /// <param name="request"></param>
         /// <returns></returns>
+        [AllowAnonymous]
         [Route("[action]")]
         [HttpPost]
         [ProducesResponseType(typeof(UserDTO), 200)]
@@ -59,6 +61,7 @@ namespace Dooshka.API.Controllers
         /// <param name="sender"></param>
         /// <param name="request"></param>
         /// <returns></returns>
+        [AllowAnonymous]
         [Route("[action]")]
         [HttpPost]
         [ProducesResponseType(typeof(RefreshResponseDTO), 200)]

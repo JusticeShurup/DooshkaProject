@@ -151,10 +151,10 @@ namespace Dooshka.API.Controllers
         /// <param name="status"></param>
         /// <returns></returns>
         [HttpPut("[action]")]
-        public async Task<IActionResult> ChangeToDoItemStatus(ISender sender, [FromQuery] Guid id, [FromQuery] int status)
+        public async Task<IActionResult> ChangeToDoItemStatus(ISender sender, ChangeToDoItemStatusRequest request)
         {
 
-            await sender.Send(new ChangeToDoItemStatusRequest() { ToDoItemId = id, Status = status });
+            await sender.Send(request);
 
 
             return Ok();

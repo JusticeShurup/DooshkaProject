@@ -22,6 +22,12 @@ namespace Dooshka.API.Middlewares
 
         public async Task InvokeAsync(HttpContext context, RequestDelegate next)
         {
+            if (context.Request.Headers["Authorization"].FirstOrDefault() == "Bearer null")
+            {
+                await next.Invoke(context);
+                return;
+            }
+
             if (context.Request.Headers["Authorization"].FirstOrDefault() == null)
             {
                 await next.Invoke(context);
@@ -30,7 +36,18 @@ namespace Dooshka.API.Middlewares
 
             string tokenString = context.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last()!;
 
-            JwtSecurityToken? token = new JwtSecurityToken(tokenString);
+
+            JwtSecurityToken? token;
+            try
+            {
+                token = new JwtSecurityToken(tokenString);
+            } 
+            catch (Exception ex)
+            {
+                await next.Invoke(context);
+                return;
+            }
+
 
             var result = _revokedTokenRepository.Find(x => x.Token == tokenString);
 
@@ -53,10 +70,12 @@ namespace Dooshka.API.Middlewares
                 throw new UnauthorizedException("User didn't not found");
             }
 
+            /*
             if (!user.IsEmailConfirmed)
             {
                 throw new UnauthorizedException("Email isn't confirmed");
             }
+            */
 
             var identity = new ClaimsIdentity(new[]
             {
