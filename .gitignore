@@ -365,7 +365,7 @@ FodyWeavers.xsd
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/node_modules
+Dooshka.Frontend/node_modules
 /.pnp
 .pnp.js
 
@@ -373,7 +373,7 @@ FodyWeavers.xsd
 /coverage
 
 # production
-/build
+Dooshka.Frontend/build
 
 # misc
 .DS_Store

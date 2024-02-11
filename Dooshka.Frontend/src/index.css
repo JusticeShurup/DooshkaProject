@@ -1,0 +1,29 @@
+
+html {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  overflow-y: hidden;
+}
+body{
+  padding: 0;
+  margin: 0;
+  overflow-y: hidden;
+}
+.p-tabview-nav{
+  justify-content: flex-end;
+}
+.p-tabview .p-tabview-nav{
+  border:none
+}
+.root{
+  background-color: var(--blue-50);
+}
+.button_position{
+  top:30px;
+  right:38px;
+}
+.p-datatable-wrapper{
+  height:600px;
+  background:white;
+}
