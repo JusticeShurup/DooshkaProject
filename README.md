@@ -21,6 +21,7 @@ Dooshka - инновационное приложение для управле�
 ```bash
 git clone https://github.com/JusticeShurup/DooshkaProject.git
 ```
+* Запустить приложение Docker Desktop
 * Из корня проекта необходимо выполнить команду
 ```bash
   docker-compose up
